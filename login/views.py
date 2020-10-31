@@ -36,9 +36,8 @@ def signup(request):               #yo chai WEB ko lagi signup code ho
                 else:
                     return HttpResponse("Problem while registering.")
 
-    csrfContext = RequestContext(request)               # FOR GET METHOD  -> yo  talako 2 ta code haru            
     signup_form = SignupForm()
-    return render(request,'register.html',{'form': signup_form,"active_tab":"login"},csrfContext)
+    return render(request,'register.html',{'form': signup_form,"active_tab":"login"})
 
 class RegisterViewSet(viewsets.ModelViewSet):                     # yo class vitra ko sabbai  API CODE ho
     queryset = User.objects.all()

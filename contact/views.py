@@ -18,20 +18,20 @@ def contact(request):
       form = ContactForm(request.POST)   
       if form.is_valid():
          response = requests.post('http://localhost:8000/api/v1/contacts/', request.POST)                    
-         print('response', response.text)
+         print('response', response.status_code)
          if response.status_code == 200:
-            csrfContext = RequestContext(request)
+            # csrfContext = RequestContext(request)
             return render(request,'success.html',
                {
                   "active_tab":"contact",
                   "request":request
                },
-               csrfContext) 
+               ) 
          else:
             return HttpResponse("Your query could not be submitted. Please try again.")
 
    contact_form = ContactForm()         
-   csrfContext = RequestContext(request)
+   # csrfContext = RequestContext(request)
    return render(
       request,'contact.html',           
       {
@@ -39,7 +39,7 @@ def contact(request):
          "active_tab":"contact",
          "request":request
       },
-      csrfContext
+      # csrfContext
    )
    
 
