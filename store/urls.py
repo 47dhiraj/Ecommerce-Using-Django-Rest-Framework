@@ -25,7 +25,7 @@ urlpatterns = [
     path('layout/', include('mainApp.urls')),
     path('about/', include('about.urls')),        
     path('contact/', include('contact.urls')),
-    path('api/v1/', include(api.router.urls)),          
+    path('api/v1/', include(api.router.urls)), 
     path('login/', include('login.urls')),
     path('', include('home.urls')),
     path('profile/', include('user_profile.urls')),
